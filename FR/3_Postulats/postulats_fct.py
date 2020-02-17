@@ -8,6 +8,10 @@ dy = 2*x-10*np.cos(x)
 x2val=3.5
 
 plt.plot(x,y)
+plt.plot([5],[1],'X')
 plt.xlabel("x")
 plt.ylabel(r"$\Psi(x,0)$")
+plt.show()
+
+
 plt.show()
