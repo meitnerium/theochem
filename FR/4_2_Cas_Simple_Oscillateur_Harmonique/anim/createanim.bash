@@ -1,0 +1,4 @@
+listfiles='anim_0.png anim_1.png anim_2.png anim_3.png anim_4.png anim_5.png anim_6.png anim_7.png anim_8.png anim_9.png anim_10.png anim_11.png anim_12.png anim_13.png anim_14.png anim_15.png anim_16.png anim_17.png anim_18.png anim_19.png anim_20.png anim_21.png anim_22.png anim_23.png anim_24.png anim_25.png anim_26.png anim_27.png anim_28.png anim_29.png anim_30.png anim_31.png anim_32.png anim_33.png anim_34.png anim_35.png anim_36.png anim_37.png anim_38.png anim_39.png anim_40.png anim_41.png anim_42.png anim_43.png anim_44.png anim_45.png anim_46.png anim_47.png anim_48.png anim_49.png anim_50.png anim_51.png anim_52.png anim_53.png anim_54.png anim_55.png anim_56.png anim_57.png anim_58.png anim_59.png anim_60.png anim_61.png anim_62.png anim_63.png'
+
+convert -delay 5 -loop 0 $listfiles animation.gif 
+

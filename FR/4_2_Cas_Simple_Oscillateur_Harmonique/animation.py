@@ -72,8 +72,9 @@ V=0.5*k*x**2
 
 fig, ax = plt.subplots()
 xdata, ydata = x, np.abs(fctt)**2
+xdata2=0
+ln, = plt.plot(xdata2,[0],'ro')
 ln, = plt.plot(xdata, ydata, 'blue')
-#ln, = plt.plot([0],[0],'ro')
 time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
 
@@ -125,13 +126,23 @@ def update(frame):
     print('t = '+str(frame)+'. xmoy = '+str(xmoy))
     xdata=x
     ydata=(np.abs(fct)**2)
+    dt=2*np.pi/63
+    k=int(frame/dt)
+    print('frame='+str(frame)+', k = '+str(k))
+    xdata2=xmoy[k]
+    #print('xdata = '+str(xdata))
+    ln.set_data(xdata2,0)
     ln.set_data(xdata, ydata)#,label='t = '+str(frame)+' u.a.')
     time_text.set_text('t = '+str(round(frame/(2*np.pi),2))+r' $T_{\nu}$')
     #ln.legend()
 
     return ln,
+
 def calcxmoy(t):
     print(t)
+
+    xmoy = np.zeros(len(t))
+    k=0
     for frame in t:
         print(frame)
         fct = P0 * np.exp(-1j * 0.5 * frame) * fct0 + P1 * np.exp(-1j * 1.5 * frame) * fct1 + P2 * np.exp(
@@ -142,9 +153,9 @@ def calcxmoy(t):
         for i in range(len(fct)):
             xmoyvec[i] = np.conj(fct)[i] * x[i] * fct[i]
 
-
-        xmoy = simps(xmoyvec, x)
+        xmoy[k] = simps(xmoyvec, x)
         print('t = ' + str(frame) + ', xmoy = ' + str(xmoy))
+        k=k+1
     return xmoy
 
 t=np.linspace(0, 2*np.pi, 64)
