@@ -89,7 +89,7 @@ V(x)=\left\{\begin{array}{cc} \inf & x\leq 0 \\
 
 \begin{columns}
 \column{0.6\textwidth}
-L'Hamiltonien de ce système est
+L'Hamiltonien général pour un système conservatif unidimensionnel est
 
 \begin{equation}\tag{2}
 \hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+\hat{V}(x)
@@ -332,14 +332,14 @@ k=\frac{n\pi}{L}, n\in \mathbb{N}^*
 
 \begin{frame}
 \frametitle{Équation de Shrödinger indépendante du temps}
-
+%
 \begin{columns}
 \column{0.6\textwidth}
-
+%
 \begin{equation}\tag{4}
 -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\Psi(x)=E\Psi(x)
 \end{equation} 
-
+%
 \begin{itemize}
 \item[]<1-> \begin{equation}\tag{5}
 \Psi(x)=A\sin(\frac{n\pi x}{L})
@@ -347,43 +347,14 @@ k=\frac{n\pi}{L}, n\in \mathbb{N}^*
 \item[]<1-> \begin{equation}\tag{6}
 \int dx A^2\sin^2(\frac{n\pi x}{L})=1
 \end{equation}
-%\item[]  <2-> \begin{equation}\tag{8}
-%\left. -A^2 2\cos(\frac{n\pi x}{L} )\right|^{L}_{0}=1
-%\end{equation}
+%%\item[]  <2-> \begin{equation}\tag{8}
+%%\left. -A^2 2\cos(\frac{n\pi x}{L} )\right|^{L}_{0}=1
+%%\end{equation}
 \item[]  <2-> \begin{equation}\tag{7}
 A^2 \frac{L}{2}=1
 \end{equation}
-\end{itemize}
-\column{0.4\textwidth}
-\begin{figure}
-\includegraphics[scale=0.4]{Pot}
-\caption{Shéma représentant le potentiel d'une particule dans une boîte}
-\end{figure}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Équation de Shrödinger indépendante du temps}
-
-\begin{columns}
-\column{0.6\textwidth}
-
-\begin{equation}\tag{4}
--\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\Psi_n(x)=E\Psi_n(x)
-\end{equation} 
-
-\begin{itemize}
-\item[]<1-> \begin{equation}\tag{5}
-\Psi_n(x)=A\sin(\frac{n\pi x}{L})
-\end{equation}  
-\item[]<1-> \begin{equation}\tag{6}
-\int dx A^2\sin^2(\frac{n\pi x}{L})=1
-\end{equation}
-%\item[]  <2-> \begin{equation}\tag{8}
-%\left. -A^2 2\cos(\frac{n\pi x}{L} )\right|^{L}_{0}=1
-%\end{equation}
-\item[]  <2-> \begin{equation}\tag{7}
+%\end{itemize}
+\item[]  <3-> \begin{equation}\tag{7}
 A=\sqrt{\frac{2}{L}}
 \end{equation}
 \end{itemize}
@@ -393,8 +364,41 @@ A=\sqrt{\frac{2}{L}}
 \caption{Shéma représentant le potentiel d'une particule dans une boîte}
 \end{figure}
 \end{columns}
-
+%
 \end{frame}
+
+%\begin{frame}
+%\frametitle{Équation de Shrödinger indépendante du temps}
+%
+%\begin{columns}
+%\column{0.6\textwidth}
+%
+%\begin{equation}\tag{4}
+%-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\Psi_n(x)=E\Psi_n(x)
+%\end{equation} 
+%
+%\begin{itemize}
+%\item[]<1-> \begin{equation}\tag{5}
+%\Psi_n(x)=A\sin(\frac{n\pi x}{L})
+%\end{equation}  
+%\item[]<1-> \begin{equation}\tag{6}
+%\int dx A^2\sin^2(\frac{n\pi x}{L})=1
+%\end{equation}
+%%\item[]  <2-> \begin{equation}\tag{8}
+%%\left. -A^2 2\cos(\frac{n\pi x}{L} )\right|^{L}_{0}=1
+%%\end{equation}
+%\item[]  <2-> \begin{equation}\tag{7}
+%A=\sqrt{\frac{2}{L}}
+%\end{equation}
+%\end{itemize}
+%\column{0.4\textwidth}
+%\begin{figure}
+%\includegraphics[scale=0.4]{Pot}
+%\caption{Shéma représentant le potentiel d'une particule dans une boîte}
+%\end{figure}
+%\end{columns}
+%
+%\end{frame}
 
 \begin{frame}
 \frametitle{Équation de Shrödinger indépendante du temps}
@@ -414,7 +418,7 @@ A=\sqrt{\frac{2}{L}}
 -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\sqrt{\frac{2}{L}}\sin(\frac{n\pi x}{L})=E_n\Psi_n(x)
 \end{equation}  
 
-\item[]<3-> \begin{equation}\tag{6}
+\item[]<3-> \begin{equation}\tag{7}
 \frac{\partial^2}{\partial x^2}\sin(\frac{n\pi x}{L})=-\frac{n^2\pi^2}{L^2}\sin(\frac{n\pi x}{L})
 \end{equation} 
 
@@ -513,7 +517,7 @@ E_n=\frac{\hbar^2n^2\pi^2}{2mL^2}
 E_n=\frac{\hbar^2n^2\pi^2}{2mL^2} 
 \end{equation} 
 \item[]<1-> \begin{equation}\tag{9}
-\hbar=m_e=1 , L=5.0 u.a. 
+\hbar=m_e=1 , L=5.0\ u.a. 
 \end{equation} 
 
 \end{itemize}

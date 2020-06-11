@@ -4,6 +4,14 @@
 \usetheme{Madrid}
 \usecolortheme{default}
 
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage[european resistor, european voltage, european current]{circuitikz}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings,decorations.pathmorphing,
+decorations.pathreplacing}
+\usetikzlibrary{calc,patterns,shapes.geometric}
+
 %Information to be included in the title page:
 \title{Cours d'introduction à la chimie quantique}
 
@@ -73,16 +81,75 @@ V(x)=kx^2
 \includegraphics[scale=0.4]{Pot}
 \caption{Shéma représentant le potentiel d'un oscillateur harmonique}
 \end{figure}
+
+
 \end{columns}
 \end{frame}
 
-%https://fr.wikipedia.org/wiki/Oscillateur_harmonique_quantique#/media/Fichier:Morse-potential-fr.png
+
+\begin{frame}
+
+\begin{figure}
+\begin{tikzpicture} [scale=0.75, decoration={coil,aspect=0.4,segment length=3mm,amplitude=3mm}]
+%decoration : gère l'aspect du ressort par l'instruction decorate
+\tikzset{ressort/.style={thick,gray,length=3mm}} %définition d'un style de ressort
+\fill (150,0) circle (0.5);
+%\draw[latex'-latex',double] (150,-5) -- node[label=r_eq] {} (153,-5);
+%\draw[latex'-latex',double] (150,-1.0) -- node[] {$r=r_{eq}$} (153,-1.0);
+\draw[decoration={aspect=0.3, segment length=3.0mm, amplitude=3mm,coil},decorate,rotate=0] (150.5,0)--(152.5,0) node [right=0cm,black] {};
+\path[<->] (150,-1.0) edge node[below] {$r=r_{eq}$} (153,-1.0);
+
+\fill (153.0,0) circle (0.5);
+\end{tikzpicture}
+
+\includegraphics[scale=0.5]{Pot_req}
+\caption{Shéma représentant le potentiel d'un oscillateur harmonique}
+\end{figure}
+\end{frame}
+%
+%%https://fr.wikipedia.org/wiki/Oscillateur_harmonique_quantique#/media/Fichier:Morse-potential-fr.png
+
+
+\begin{frame}
+
+\begin{figure}
+\begin{tikzpicture} [scale=0.75, decoration={coil,aspect=0.4,segment length=3mm,amplitude=3mm}]
+%decoration : gère l'aspect du ressort par l'instruction decorate
+\tikzset{ressort/.style={thick,gray,smooth}} %définition d'un style de ressort
+\fill (149,0) circle (0.5);
+\draw[decoration={aspect=0.3, segment length=6.0mm, amplitude=3mm,coil},decorate,rotate=0] (149.5,0)--(153.5,0) node [right=0cm,black] {};
+\path[<->] (149,-1.0) edge node[below] {$r>r_{eq}$} (154,-1.0);
+\fill (154.0,0) circle (0.5);
+\end{tikzpicture}
+
+\includegraphics[scale=0.5]{Pot_r_1}
+\caption{Shéma représentant le potentiel d'un oscillateur harmonique}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}
+\begin{tikzpicture} [scale=0.75, decoration={coil,aspect=0.4,segment length=3mm,amplitude=3mm}]
+%decoration : gère l'aspect du ressort par l'instruction decorate
+\tikzset{ressort/.style={thick,gray,smooth}} %définition d'un style de ressort
+\fill (150.5,0) circle (0.5);
+\draw[decoration={aspect=0.3, segment length=1.0mm, amplitude=3mm,coil},decorate,rotate=0] (151.0,0)--(152.0,0) node [right=0cm,black] {};
+\path[<->] (150.5,-1.0) edge node[below] {$r<r_{eq}$} (152.5,-1.0);
+\fill (152.5,0) circle (0.5);
+\end{tikzpicture}
+
+\includegraphics[scale=0.5]{Pot_r_m1}
+\caption{Shéma représentant le potentiel d'un oscillateur harmonique}
+\end{figure}
+\end{frame}
+
 
 \section{L'Hamiltonien}
 \begin{frame}
 \frametitle{Le potentiel}
 
-L'Hamiltonien de ce système est
+L'Hamiltonien général d'un système conservatif unidimensionnel est
 
 \begin{equation}\tag{2}
 \hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+\hat{V}(x)
@@ -93,8 +160,7 @@ L'Hamiltonien de ce système est
 
 
 \begin{frame}
-\frametitle{Le potentiel}
-
+\frametitle{l'Hamiltonien}
 
 L'Hamiltonien de ce système est
 
@@ -117,18 +183,35 @@ Les solutions sont de la forme
 \begin{equation}
 \Psi_{\nu}(x)=N_{\nu}H_{\nu}(y)e^{\frac{-y^2}{2}}
 \end{equation}
-o\'u $N_{\nu}$ est une constante de normalisation, $H_{\nu}(y)$ est un polynome de Hermite et $y=\frac{x}{\alpha}, \alpha=(\frac{\hbar^2}{mk})^{\frac{1}{4}}$
+o\'u $N_{\nu}$ est une constante de normalisation, $H_{\nu}(y)$ est un polynome d'Hermite et $y=\frac{x}{\alpha}, \alpha=(\frac{\hbar^2}{mk})^{\frac{1}{4}}$
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Équations de Shrodinger indépendante du temps}
+Les premiers polynomes d'Hermite sont 
+\begin{table}
+\begin{tabular}{ c | c }
+n & $H(x)$ \\\hline
+0 & $1$  \\
+1 & $2x$ \\
+2 & $4x^2-2$ \\
+3 & $8x^3-12x$ \\
+4 & $16x^4-48x^2+12$  \\
+\end{tabular} 
+\end{table}
 
+\end{frame}
+
+%
 \section{L'Hamiltonien}
 \begin{frame}
 \frametitle{Équations de Shrodinger indépendante du temps}
-L'énegie de ces états sont 
+L'énegie de ces états est
 \begin{equation}
-E_{\nu}=\left(\frac{1}{2}+\nu\right)\hbar\omega
+E_{\nu}=\left(\nu+\frac{1}{2}\right)\hbar\nu
 \end{equation}
+
 La différence d'énegie entre les états est constantes
 \begin{equation}
 E_{\nu+1}-E_{\nu}=\hbar \omega
@@ -145,6 +228,19 @@ E_{\nu+1}-E_{\nu}=\hbar \omega
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\begin{tikzpicture} [scale=0.75, decoration={coil,aspect=0.4,segment length=3mm,amplitude=3mm}]
+%decoration : gère l'aspect du ressort par l'instruction decorate
+\tikzset{ressort/.style={thick,gray,smooth}} %définition d'un style de ressort
+
+
+
+\fill (0,0) circle (0.5);
+\draw[ressort,decorate,rotate=0] (0.5,0)--(2.5,0) node [right=0cm,black] {};
+\fill (3.0,0) circle (0.5);
+\end{tikzpicture}
+
+\end{frame}
 \end{document}
 
 
